@@ -2,12 +2,10 @@ package com.youshang520i.demo.springlifecycle.bean;
 
 import lombok.ToString;
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.BeanFactoryAware;
-import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.*;
 
 @ToString
-public class Person implements BeanFactoryAware, BeanNameAware{
+public class Person implements BeanFactoryAware, BeanNameAware {
 
     public Person(){
         System.out.println("第七步: 实例化Person构造方法");

@@ -17,8 +17,8 @@ public class MyBeanFactpryPostProcessor implements BeanFactoryPostProcessor {
         System.out.println("第三步：执行postProcessBeanFactory");
 //        RootBeanDefinition rootBeanDefinition = new RootBeanDefinition();
 
-//        BeanDefinition person = configurableListableBeanFactory.getBeanDefinition("person");
-//        person.getPropertyValues().add("name","zs");
+        BeanDefinition person = configurableListableBeanFactory.getBeanDefinition("person");
+        person.getPropertyValues().addPropertyValue("name","zs");
 
 
 

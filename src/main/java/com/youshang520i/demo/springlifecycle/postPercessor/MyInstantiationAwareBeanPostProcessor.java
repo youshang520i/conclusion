@@ -51,7 +51,7 @@ public class MyInstantiationAwareBeanPostProcessor implements InstantiationAware
     @Override
     public PropertyValues postProcessPropertyValues(PropertyValues pvs, PropertyDescriptor[] pds, Object bean, String beanName) throws BeansException {
         System.out.println("第八步：执行bean的set操作的时候会先执行(postProcessPropertyValues)操作");
-        return null;
+        return pvs;
     }
 
 }
