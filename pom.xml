@@ -57,7 +57,7 @@
             <version>4.5.10</version>
         </dependency>
 
-<!--        CGlib依赖-->
+<!--     start   CGlib依赖-->
         <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib-nodep</artifactId>
@@ -68,7 +68,26 @@
             <artifactId>asm</artifactId>
             <version>5.0.4</version>
         </dependency>
-
+<!--     end   CGlib依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>aopalliance</groupId>
+            <artifactId>aopalliance</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.8.13</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.8.13</version>
+        </dependency>
 
     </dependencies>
 
