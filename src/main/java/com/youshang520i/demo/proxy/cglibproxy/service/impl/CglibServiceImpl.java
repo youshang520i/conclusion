@@ -14,7 +14,7 @@ public class CglibServiceImpl implements CglibService {
     }
 
     /**
-     * final修饰的方法
+     * final修饰的方法,CGLib不能代理
      * @return
      */
     public final String example(){

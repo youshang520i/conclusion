@@ -6,6 +6,9 @@ import lombok.extern.log4j.Log4j2;
 
 import java.lang.reflect.Proxy;
 
+/**
+ * JDK1.6+ 底层提供的动态代理
+ */
 @Log4j2
 public class JdkProxy {
 

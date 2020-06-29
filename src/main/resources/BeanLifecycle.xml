@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="beanLifecycle" class="com.youshang520i.demo.springlifecycle.bean.BeanLifecycle"  >
+        <property name="name" value="张三"/>
+        <property name="annotation" value="autowire"/>
+        <property name="relyOn" ref="relyOn"/>
+    </bean>
+
+    <bean id="relyOn" name="relyOn" class="com.youshang520i.demo.springlifecycle.bean.RelyOn">
+        <property name="name" value="张三的relyOn"/>
+    </bean>
+</beans>

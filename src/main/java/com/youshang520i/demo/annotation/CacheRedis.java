@@ -23,6 +23,6 @@ public @interface CacheRedis {
 
     String key();
 
-    int expireTime() default 600;
+    int expireTime() default 3000;
 
 }

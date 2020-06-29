@@ -23,9 +23,15 @@
 
     <bean id="myBeanPostProcessor" class="com.youshang520i.demo.springlifecycle.postPercessor.MyBeanPostProcessor" />
 
-    <bean id="person" class="com.youshang520i.demo.springlifecycle.bean.Person" init-method="initMethod" destroy-method="destroyMethod">
-        <property name="name" value="张三" />
+    <bean class="javax.annotation.PostConstruct" abstract="true"/>
+    <bean class="javax.annotation.PreDestroy" abstract="true"/>
+
+    <bean id="person" class="com.youshang520i.demo.springlifecycle.bean.Person" init-method="initMethod" destroy-method="destroyMethod" scope="singleton">
+        <property name="name" value="张三"  />
         <property name="age" value="18"/>
     </bean>
+
+    <context:component-scan base-package="aj"/>
+
 
 </beans>

@@ -8,12 +8,10 @@ import org.springframework.stereotype.Service;
  */
 public class JdkHelloImpl implements JdkHello {
 
-
     @Override
     public String hello() {
         return "hello";
     }
-
     @Override
     public String world() {
         return "world";
