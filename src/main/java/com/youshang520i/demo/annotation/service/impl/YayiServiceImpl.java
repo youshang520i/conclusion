@@ -9,6 +9,7 @@ public class YayiServiceImpl implements YayiService {
     @Override
     @CacheRedis(key = "say",expireTime = 11)
     public Integer say(Integer num) {
+        System.out.println("say->num :" + num);
         return num;
     }
 

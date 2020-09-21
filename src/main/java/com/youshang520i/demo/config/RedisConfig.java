@@ -8,23 +8,24 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 /**
  * redis 配置中心
+ * @author youshang
  */
-@Configuration
+//@Configuration
 public class RedisConfig{
 
-    @Bean
-    public JedisConnectionFactory jedisConnectionFactory(){
-        JedisConnectionFactory jcf = new JedisConnectionFactory();
-        jcf.setHostName("192.168.3.123");
-        return jcf;
-    }
-    @Bean
-    public RedisTemplate redisTemplate(){
-        RedisTemplate rt = new RedisTemplate();
-        rt.setConnectionFactory(jedisConnectionFactory());
-        rt.setKeySerializer(new StringRedisSerializer());
-        rt.setValueSerializer(new StringRedisSerializer());
-        return rt;
-    }
+//    @Bean
+//    public JedisConnectionFactory jedisConnectionFactory(){
+//        JedisConnectionFactory jcf = new JedisConnectionFactory();
+//        jcf.setHostName("192.168.3.123");
+//        return jcf;
+//    }
+//    @Bean
+//    public RedisTemplate redisTemplate(){
+//        RedisTemplate rt = new RedisTemplate();
+//        rt.setConnectionFactory(jedisConnectionFactory());
+//        rt.setKeySerializer(new StringRedisSerializer());
+//        rt.setValueSerializer(new StringRedisSerializer());
+//        return rt;
+//    }
 
 }
