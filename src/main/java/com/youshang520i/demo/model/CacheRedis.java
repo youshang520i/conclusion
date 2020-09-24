@@ -1,4 +1,4 @@
-package com.youshang520i.demo.annotation;
+package com.youshang520i.demo.model;
 
 import java.lang.annotation.*;
 

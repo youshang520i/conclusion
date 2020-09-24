@@ -1,8 +1,10 @@
 package com.youshang520i.demo.annotation.service.impl;
 
-import com.youshang520i.demo.annotation.CacheRedis;
+import com.youshang520i.demo.model.CacheRedis;
 import com.youshang520i.demo.annotation.service.YayiService;
+import com.youshang520i.demo.log.model.OperationLogModel;
 import org.springframework.stereotype.Service;
+import com.youshang520i.demo.log.aspect.*;
 
 @Service
 public class YayiServiceImpl implements YayiService {
@@ -18,4 +20,12 @@ public class YayiServiceImpl implements YayiService {
     public String example(String str) {
         return str;
     }
+
+    @Override
+    public OperationLogModel log(OperationLogModel logModel){
+        OpContextHolder.set("xxxxxxxx");
+        OperationLogModel operationLogModel = new OperationLogModel();
+        return operationLogModel;
+    }
+
 }

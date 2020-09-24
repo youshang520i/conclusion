@@ -1,25 +1,17 @@
-package com.youshang520i.demo.annotation.service;
+package com.youshang520i.demo.annotation.service.impl;
 
 
-import com.youshang520i.demo.annotation.CacheRedis;
-import com.youshang520i.demo.config.RedisConfig;
+import com.youshang520i.demo.model.CacheRedis;
 import lombok.extern.log4j.Log4j2;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureBefore;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.annotation.Order;
-import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
 
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 
 /**
@@ -35,7 +27,7 @@ public class CacheService {
     /**
      * 切入点
      */
-    @Pointcut(value = "@annotation(com.youshang520i.demo.annotation.CacheRedis)")
+    @Pointcut(value = "@annotation(com.youshang520i.demo.model.CacheRedis)")
     public void pointCut(){}
 
 //    @Before(value = "pointCut() && @annotation(cacheRedis)")
@@ -78,7 +70,9 @@ public class CacheService {
     public Object setCache(ProceedingJoinPoint joinPoint, CacheRedis cacheRedis) {
         Object result = 1;
         log.info(String.format("当前调用的类名: %s",joinPoint.getSignature().getDeclaringType().getName()));
-        Method method = getMethod(joinPoint);//自定义注解类
+        Method method = getMethod(joinPoint);//自定义注解类\
+        Object[] args = joinPoint.getArgs();
+//        System.out.println(args[0]); //获取方法的参数
         log.info(String.format("自定义注解类: %s ", method));
 //        CacheRedis  cacheRedis= method.getAnnotation(CacheRedis.class);//获取key值
         String key = cacheRedis.key();
