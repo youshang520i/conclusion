@@ -1,8 +1,8 @@
-package com.youshang520i.demo.log.aspect;
+package com.youshang520i.demo.annotation.log.aspect;
 
 import cn.hutool.core.date.DateUtil;
 import com.youshang520i.demo.annotation.service.OperationLogService;
-import com.youshang520i.demo.log.model.OperationLogModel;
+import com.youshang520i.demo.annotation.log.model.OperationLogModel;
 import lombok.extern.log4j.Log4j2;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
@@ -29,7 +29,7 @@ public class OperationLogAspect {
     /**
      * 切入点
      */
-    @Pointcut(value = "@annotation(com.youshang520i.demo.log.aspect.OperationLog)")
+    @Pointcut(value = "@annotation(com.youshang520i.demo.annotation.log.aspect.OperationLog)")
     public void pointCut(){}
 
     /**
@@ -72,6 +72,7 @@ public class OperationLogAspect {
                 operationLogModel.setOperatorId("10001");
                 operationLogModel.setOperatorName("admin");
                 operationLogModel.setContent(this.optimizeType(operationLogModel));
+                operationLogService.insertSelective(operationLogModel);
             }finally {
                 OpContextHolder.remove();
             }

@@ -1,10 +1,10 @@
 package com.youshang520i.demo.annotation.service.impl;
 
+import com.youshang520i.demo.annotation.log.aspect.OpContextHolder;
 import com.youshang520i.demo.model.CacheRedis;
 import com.youshang520i.demo.annotation.service.YayiService;
-import com.youshang520i.demo.log.model.OperationLogModel;
+import com.youshang520i.demo.annotation.log.model.OperationLogModel;
 import org.springframework.stereotype.Service;
-import com.youshang520i.demo.log.aspect.*;
 
 @Service
 public class YayiServiceImpl implements YayiService {

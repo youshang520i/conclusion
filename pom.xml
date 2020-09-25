@@ -128,6 +128,16 @@
 
     <!--为了使用自动生成实体插件-->
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/java/com/youshang520i/demo</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -147,6 +157,7 @@
                 </configuration>
             </plugin>
         </plugins>
+
     </build>
 
 </project>

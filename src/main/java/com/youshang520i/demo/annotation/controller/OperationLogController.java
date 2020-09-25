@@ -1,15 +1,14 @@
 package com.youshang520i.demo.annotation.controller;
 
+import com.youshang520i.demo.annotation.service.OperationLogService;
 import com.youshang520i.demo.annotation.service.YayiService;
-import com.youshang520i.demo.log.aspect.OperationLog;
-import com.youshang520i.demo.log.model.OperationLogModel;
+import com.youshang520i.demo.annotation.log.aspect.OperationLog;
+import com.youshang520i.demo.annotation.log.model.OperationLogModel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -21,6 +20,8 @@ public class OperationLogController {
 
     @Autowired
     private YayiService yayiService;
+    @Autowired
+    private OperationLogService logService;
 
     @PostMapping("/addExample")
     @OperationLog(modelType = 100,modelName = "测试数据",operateType= 1)
@@ -34,5 +35,15 @@ public class OperationLogController {
         return map;
     }
 
+    @GetMapping("/queryList")
+    public Map<Object, Object> queryList(){
+        HashMap<Object, Object> map = new HashMap<>();
+
+        List<OperationLogModel> operationLogModels = logService.queryList();
+        map.put("data",operationLogModels);
+        map.put("code",0);
+        map.put("message","成功");
+        return map;
+    }
 
 }

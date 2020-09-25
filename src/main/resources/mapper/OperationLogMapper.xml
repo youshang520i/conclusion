@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.youshang520i.demo.dao.OperationLogMapper">
-  <resultMap id="BaseResultMap" type="com.youshang520i.demo.log.model.OperationLogModel">
+<mapper namespace="com.youshang520i.demo.mapper.OperationLogMapper">
+  <resultMap id="BaseResultMap" type="com.youshang520i.demo.annotation.log.model.OperationLogModel">
     <id column="log_id" jdbcType="VARCHAR" property="logId" />
     <result column="model_type" jdbcType="INTEGER" property="modelType" />
     <result column="model_name" jdbcType="VARCHAR" property="modelName" />
@@ -22,11 +22,17 @@
     from operation_log
     where log_id = #{logId,jdbcType=VARCHAR}
   </select>
+  <select id="querylist"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from operation_log
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from operation_log
     where log_id = #{logId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.youshang520i.demo.log.model.OperationLogModel">
+  <insert id="insert" parameterType="com.youshang520i.demo.annotation.log.model.OperationLogModel">
     insert into operation_log (log_id, model_type, model_name, 
       operate_type, content, extra, 
       operator_id, operator_name, create_time
@@ -36,7 +42,7 @@
       #{operatorId,jdbcType=VARCHAR}, #{operatorName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.youshang520i.demo.log.model.OperationLogModel">
+  <insert id="insertSelective" parameterType="com.youshang520i.demo.annotation.log.model.OperationLogModel">
     insert into operation_log
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="logId != null">
@@ -97,7 +103,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.youshang520i.demo.log.model.OperationLogModel">
+  <update id="updateByPrimaryKeySelective" parameterType="com.youshang520i.demo.annotation.log.model.OperationLogModel">
     update operation_log
     <set>
       <if test="modelType != null">
@@ -127,7 +133,7 @@
     </set>
     where log_id = #{logId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.youshang520i.demo.log.model.OperationLogModel">
+  <update id="updateByPrimaryKey" parameterType="com.youshang520i.demo.annotation.log.model.OperationLogModel">
     update operation_log
     set model_type = #{modelType,jdbcType=INTEGER},
       model_name = #{modelName,jdbcType=VARCHAR},

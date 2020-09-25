@@ -1,6 +1,8 @@
 package com.youshang520i.demo.annotation.service;
 
-import com.youshang520i.demo.log.model.OperationLogModel;
+import com.youshang520i.demo.annotation.log.model.OperationLogModel;
+
+import java.util.List;
 
 /**
  * @author youshang
@@ -8,6 +10,8 @@ import com.youshang520i.demo.log.model.OperationLogModel;
 public interface OperationLogService {
 
     int insertSelective(OperationLogModel record);
+
+    List<OperationLogModel> queryList();
 
 
 }

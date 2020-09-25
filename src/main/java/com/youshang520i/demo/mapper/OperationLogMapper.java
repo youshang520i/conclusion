@@ -1,6 +1,8 @@
-package com.youshang520i.demo.dao;
+package com.youshang520i.demo.mapper;
 
-import com.youshang520i.demo.log.model.OperationLogModel;
+import com.youshang520i.demo.annotation.log.model.OperationLogModel;
+
+import java.util.List;
 
 /**
  * @author youshang
@@ -17,4 +19,6 @@ public interface OperationLogMapper {
     int updateByPrimaryKeySelective(OperationLogModel record);
 
     int updateByPrimaryKey(OperationLogModel record);
+
+    List<OperationLogModel> querylist();
 }

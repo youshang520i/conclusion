@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @author youshang
  */
 @ComponentScan(basePackages={"com.youshang520i"})
-@MapperScan(value = {"com.youshang520i.demo.dao"})
+@MapperScan(value = {"com.youshang520i.demo.mapper"})
 @SpringBootApplication
 public class DemoApplication {
 
